@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="translated-ltr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Evermonte — Design System v2 (opus2)</title>
+
+<!-- Reuse the EXACT same stylesheets as the original site -->
+<link rel="stylesheet" href="assets/frontend_e892c337fb63.css"/>
+<link rel="stylesheet" href="assets/style_d5a58816f1d9.css"/>
+<link rel="stylesheet" href="assets/theme_3d0a08b33c9d.css"/>
+<link rel="stylesheet" href="assets/header-footer_b07aa181e519.css"/>
+<link rel="stylesheet" href="assets/frontend_e26280445e16.css"/>
+<link rel="stylesheet" href="assets/post-5_5626c0bc622a.css"/>
+<link rel="stylesheet" href="assets/widget-icon-list_38fe902564a7.css"/>
+<link rel="stylesheet" href="assets/sticky_01cee3d6faab.css"/>
+<link rel="stylesheet" href="assets/widget-image_6c84724264da.css"/>
+<link rel="stylesheet" href="assets/widget-nav-menu_4ced98424cda.css"/>
+<link rel="stylesheet" href="assets/widget-heading_ba93535dfbf6.css"/>
+<link rel="stylesheet" href="assets/widget-social-icons_4e6f1fddbd41.css"/>
+<link rel="stylesheet" href="assets/apple-webkit_7b95aba4902c.css"/>
+<link rel="stylesheet" href="assets/widget-form_9c603050690f.css"/>
+<link rel="stylesheet" href="assets/swiper_e03bee457ca3.css"/>
+<link rel="stylesheet" href="assets/e-swiper_fed557e06008.css"/>
+<link rel="stylesheet" href="assets/widget-nested-carousel_588dcf971b0b.css"/>
+<link rel="stylesheet" href="assets/widget-divider_607252f970e7.css"/>
+<link rel="stylesheet" href="assets/widget-icon-box_36faa84e05ee.css"/>
+<link rel="stylesheet" href="assets/post-28325_57a80305c356.css"/>
+<link rel="stylesheet" href="assets/post-24974_281ca16d0e20.css"/>
+<link rel="stylesheet" href="assets/post-39_b6bd26e50c14.css"/>
+<link rel="stylesheet" href="assets/post-124_ff9ad3b62965.css"/>
+<link rel="stylesheet" href="assets/style_4f0cdb36a2ed.css"/>
+<link rel="stylesheet" href="assets/montserrat_b9e9af086e0b.css"/>
+<link rel="stylesheet" href="assets/taviraj_9a6198fd024e.css"/>
+
+<!-- Project custom CSS extracted from index.html (texto_bold, btnset, btnsetas, btnlargo, textobox) -->
+<style id="wp-custom-css">
+.texto_bold{font-weight:700;}
+.texto_bold_formated{font-family:"Montserrat",Sans-serif !important;font-style:normal !important;font-weight:700 !important;}
+@media(max-width:767px){.texto_bold_formated{font-size:5vw !important;}}
+@media(max-width:767px){.texto_bold_mob{font-weight:700;}}
+p{margin:0px !important;}
+.current-menu-item a{font-weight:bolder !important;}
+li a{transition:all .1s !important;}
+li.menu-item:hover > a{font-weight:bolder !important;}
+ul.sub-menu li:hover > a{font-weight:bolder !important;}
+
+/* btnset */
+.btnset svg{width:35px !important;height:35px !important;transition:all .3s;padding:9px;transform:rotate(45deg);border-radius:50px;}
+.btnset .elementor-button-content-wrapper{display:flex;align-items:center;}
+.btnsemfundo svg{background:#fff;}
+.btnfundopreto svg{background:#fff;}
+.btnfundobranco svg{background:#151515;}
+.btnfundoazul svg{background:#1F4461;}
+.btnset:hover svg{transform:rotate(90deg);}
+.btnset .elementor-button-content-wrapper{padding:4px;}
+.btnset .elementor-button-text{padding:10px 20px 10px 30px;}
+@media(max-width:767px){.btnset svg{width:30px !important;height:30px !important;}}
+
+/* setas */
+.btnsetas svg{transition:all .3s;padding:6px;transform:rotate(45deg);border-radius:50px;}
+.stcomfundo svg{width:25px !important;height:25px !important;}
+.stsemfundo svg{width:24px !important;height:24px !important;}
+.btnsetas .elementor-button-content-wrapper{display:flex;align-items:center;}
+.btnsetas:hover svg{transform:rotate(90deg);}
+
+/* texto box */
+.textobox p{padding:14.5px 30px 14.5px 30px !important;}
+
+/* btn largo */
+.btnlargo_branco svg{background:#fff;}
+.btnlargo_preto svg{background:#151515;}
+.btnlargo svg{width:60px;border-radius:100px;transition:all .3s;padding:8px 20px;overflow:visible;}
+.btnlargo .elementor-button-content-wrapper{display:flex;align-items:center;}
+</style>
+
+<!-- Documentation chrome only — does NOT touch the original components -->
+<style id="ds-doc-chrome">
+:root{
+  --ds-ink:#0a0a0a;
+  --ds-paper:#ffffff;
+  --ds-muted:#6b6b6b;
+  --ds-line:#e6e6e6;
+  --ds-soft:#f6f6f4;
+  --ds-blue:#1F4461;
+  --ds-black:#151515;
+}
+html,body{background:var(--ds-paper);}
+body.ds-doc{
+  font-family:"Montserrat",Helvetica,Arial,sans-serif;
+  color:var(--ds-ink);
+  margin:0;
+  padding:0;
+}
+
+/* Top doc navigation */
+.ds-topnav{
+  position:sticky;top:0;z-index:9999;
+  background:rgba(255,255,255,.92);
+  backdrop-filter:saturate(140%) blur(8px);
+  border-bottom:1px solid var(--ds-line);
+}
+.ds-topnav-inner{
+  max-width:1280px;margin:0 auto;
+  display:flex;align-items:center;gap:24px;
+  padding:14px 24px;
+}
+.ds-topnav-brand{
+  font-family:"Taviraj",Georgia,serif;
+  font-weight:700;font-size:18px;letter-spacing:.02em;
+}
+.ds-topnav-brand i{color:var(--ds-blue);}
+.ds-topnav ul{
+  list-style:none;display:flex;flex-wrap:wrap;gap:18px;
+  margin:0;padding:0;font-size:13px;
+}
+.ds-topnav a{
+  color:var(--ds-ink);text-decoration:none;
+  padding:6px 2px;border-bottom:1px solid transparent;
+  transition:border-color .2s, color .2s;
+}
+.ds-topnav a:hover{border-color:var(--ds-ink);}
+.ds-topnav .ds-topnav-meta{margin-left:auto;color:var(--ds-muted);font-size:12px;}
+
+/* Section frame */
+.ds-section{
+  max-width:1280px;margin:0 auto;
+  padding:96px 24px 48px;
+  border-bottom:1px solid var(--ds-line);
+}
+.ds-section:last-of-type{border-bottom:none;}
+.ds-eyebrow{
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--ds-muted);margin-bottom:8px;
+}
+.ds-section-title{
+  font-family:"Taviraj",Georgia,serif;
+  font-size:40px;line-height:1.1;font-weight:500;
+  margin:0 0 8px;letter-spacing:-.01em;
+}
+.ds-section-title i{color:var(--ds-blue);}
+.ds-section-lede{
+  color:var(--ds-muted);max-width:62ch;
+  font-size:15px;line-height:1.6;margin-bottom:40px;
+}
+
+/* Spec rows */
+.ds-spec{
+  display:grid;grid-template-columns:160px 1fr 140px;
+  align-items:baseline;gap:24px;
+  padding:22px 0;border-top:1px dashed var(--ds-line);
+}
+.ds-spec:last-child{border-bottom:1px dashed var(--ds-line);}
+.ds-spec-name{
+  font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--ds-muted);
+}
+.ds-spec-meta{
+  text-align:right;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:11px;color:var(--ds-muted);
+}
+
+/* Preview tiles */
+.ds-tile{
+  border:1px solid var(--ds-line);border-radius:6px;
+  padding:28px;background:var(--ds-soft);
+}
+.ds-tile.dark{background:var(--ds-black);color:#fff;}
+.ds-tile.blue{background:var(--ds-blue);color:#fff;}
+.ds-grid{display:grid;gap:16px;}
+.ds-grid.cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+.ds-grid.cols-3{grid-template-columns:repeat(3,minmax(0,1fr));}
+.ds-grid.cols-4{grid-template-columns:repeat(4,minmax(0,1fr));}
+@media(max-width:767px){
+  .ds-grid.cols-3,.ds-grid.cols-4{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .ds-spec{grid-template-columns:1fr;text-align:left;}
+  .ds-spec-meta{text-align:left;}
+}
+
+/* Color swatch */
+.ds-swatch{
+  border:1px solid var(--ds-line);border-radius:6px;overflow:hidden;
+  background:#fff;
+}
+.ds-swatch-chip{height:120px;}
+.ds-swatch-meta{padding:12px 14px;font-size:12px;line-height:1.5;}
+.ds-swatch-meta strong{display:block;font-size:13px;margin-bottom:2px;}
+.ds-swatch-meta code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ds-muted);}
+
+/* Component shelf */
+.ds-shelf{
+  display:flex;flex-wrap:wrap;gap:18px;align-items:center;
+  padding:28px;border:1px solid var(--ds-line);border-radius:6px;
+  background:var(--ds-soft);
+}
+.ds-shelf.dark{background:var(--ds-black);}
+.ds-state-label{
+  display:block;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ds-muted);margin-bottom:8px;
+}
+
+/* Hide chrome the elementor header would normally inject */
+.ds-section .elementor-button{cursor:pointer;}
+</style>
+</head>
+
+<body class="ds-doc home wp-singular elementor-default elementor-kit-5 elementor-page e--ua-blink e--ua-chrome e--ua-webkit">
+
+<!-- ============================================================ -->
+<!-- TOP NAV (anchors only — not a redesign of the site header)   -->
+<!-- ============================================================ -->
+<header class="ds-topnav">
+  <div class="ds-topnav-inner">
+    <div class="ds-topnav-brand">Evermonte <i>Design System</i></div>
+    <nav><ul>
+      <li><a href="#hero">0. Hero</a></li>
+      <li><a href="#typography">1. Typography</a></li>
+      <li><a href="#colors">2. Colors &amp; Surfaces</a></li>
+      <li><a href="#components">3. UI Components</a></li>
+      <li><a href="#layout">4. Layout &amp; Spacing</a></li>
+      <li><a href="#motion">5. Motion</a></li>
+      <li><a href="#icons">6. Icons</a></li>
+    </ul></nav>
+    <div class="ds-topnav-meta">v2 · opus2</div>
+  </div>
+</header>
+
+<!-- ============================================================ -->
+<!-- 0. HERO — EXACT CLONE OF ORIGINAL HOMEPAGE HERO              -->
+<!--    Only the textual content is adapted to present the DS.   -->
+<!-- ============================================================ -->
+<section id="hero">
+  <div class="elementor elementor-28325 elementor-location-single" data-elementor-id="28325" data-elementor-type="wp-page">
+
+    <div class="elementor-element elementor-element-de10666 e-con-full e-flex e-con e-parent e-lazyloaded" data-element_type="container" data-id="de10666" data-settings='{"background_background":"classic"}'>
+
+      <div class="elementor-element elementor-element-9a25541 elementor-widget__width-inherit elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="9a25541" data-widget_type="text-editor.default">
+        <div class="elementor-widget-container">
+          <p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Evermonte Design System </font></font><span class="texto_bold"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">— a living pattern library.</font></font></span></p>
+        </div>
+      </div>
+
+      <div class="elementor-element elementor-element-09061d8 e-con-full e-flex e-con e-child" data-element_type="container" data-id="09061d8">
+
+        <div class="elementor-element elementor-element-ecf5693 elementor-widget-mobile__width-initial elementor-widget elementor-widget-heading" data-element_type="widget" data-id="ecf5693" data-widget_type="heading.default">
+          <div class="elementor-widget-container">
+            <h1 class="elementor-heading-title elementor-size-default"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">DESIGN FOR WHAT </font></font><span class="texto_bold"><i><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">MATTERS</font></font></i></span></h1>
+          </div>
+        </div>
+
+        <div class="elementor-element elementor-element-2781e82 elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="2781e82" data-widget_type="text-editor.default">
+          <div class="elementor-widget-container">
+            <p><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">There are systems that document what already exists. </font></font><br/><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Systems where every token, every type ramp, every motion is intentional. </font></font><br/><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Where consistency is continuity, not constraint. </font></font><br/><span class="texto_bold"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">This is the language we ship in.</font></font></span></p>
+          </div>
+        </div>
+
+        <div class="elementor-element elementor-element-114ad1b e-con-full e-flex e-con e-child" data-element_type="container" data-id="114ad1b">
+          <div class="elementor-element elementor-element-29184c3 elementor-widget__width-auto elementor-widget elementor-widget-button" data-element_type="widget" data-id="29184c3" data-widget_type="button.default">
+            <div class="elementor-widget-container">
+              <div class="elementor-button-wrapper">
+                <a class="elementor-button elementor-button-link elementor-size-sm" href="#typography">
+                  <span class="elementor-button-content-wrapper">
+                    <span class="elementor-button-text"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Explore the foundations.</font></font></span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="elementor-element elementor-element-bffeadf elementor-widget__width-initial elementor-widget-mobile__width-initial elementor-widget elementor-widget-button" data-element_type="widget" data-id="bffeadf" data-widget_type="button.default">
+            <div class="elementor-widget-container">
+              <div class="elementor-button-wrapper">
+                <a class="elementor-button elementor-button-link elementor-size-sm" href="#components">
+                  <span class="elementor-button-content-wrapper">
+                    <span class="elementor-button-text"><font dir="auto" style="vertical-align: inherit;"><font dir="auto" style="vertical-align: inherit;">Browse the components.</font></font></span>
+                  </span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="elementor-element elementor-element-06c873e e-con-full e-flex e-con e-child" data-element_type="container" data-id="06c873e">
+        <div class="elementor-element elementor-element-4ca9f92 e-con-full e-flex e-con e-child" data-element_type="container" data-id="4ca9f92">
+          <div class="elementor-element elementor-element-5de9482 elementor-widget__width-auto elementor-widget elementor-widget-text-editor" data-element_type="widget" data-id="5de9482" data-widget_type="text-editor.default">
+            <div class="elementor-widget-container">
+              <p><font dir="auto" style="vertical-align: inherit;"><span class="texto_bold"><font dir="auto" style="vertical-align: inherit;">Tokens, components and motion </font></span><span class="texto_bold"><font dir="auto" style="vertical-align: inherit;">used across every page of</font></span><font dir="auto" style="vertical-align: inherit;"> evermonte.com .</font></font><span class="texto_bold"><font dir="auto" style="vertical-align: inherit;"></font><br/><font dir="auto" style="vertical-align: inherit;"></font></span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="elementor-element elementor-element-07a0442 e-con-full e-flex e-con e-child" data-element_type="container" data-id="07a0442">
+          <div class="elementor-element elementor-element-55397a1 flutuar elementor-view-default elementor-widget elementor-widget-icon" data-element_type="widget" data-id="55397a1" data-widget_type="icon.default">
+            <div class="elementor-widget-container">
+              <div class="elementor-icon-wrapper">
+                <a class="elementor-icon" href="#typography">
+                  <svg fill="none" height="60" viewbox="0 0 60 60" width="60" xmlns="http://www.w3.org/2000/svg"><rect height="59" rx="29.5" stroke="white" width="59" x="0.5" y="0.5"></rect><path d="M42 24L30 36L18 24" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="elementor-element elementor-element-4e9cc43 e-con-full elementor-hidden-tablet elementor-hidden-mobile e-flex e-con e-child" data-element_type="container" data-id="4e9cc43"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 1. TYPOGRAPHY                                                -->
+<!-- ============================================================ -->
+<section id="typography" class="ds-section">
+  <div class="ds-eyebrow">01 — Foundations</div>
+  <h2 class="ds-section-title">Typography <i>scale</i></h2>
+  <p class="ds-section-lede">Two families anchor the system. <strong>Taviraj</strong> (serif italic) carries voice in headings — used for editorial italics like <i>matters</i>. <strong>Montserrat</strong> (sans) carries hierarchy and body. Sizes flow from <code>elementor-heading-title</code> and inherit from <code>texto_bold</code> for emphasis runs.</p>
+
+  <div class="ds-spec">
+    <div class="ds-spec-name">Heading 1</div>
+    <div>
+      <div class="elementor-element elementor-widget elementor-widget-heading" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h1 class="elementor-heading-title elementor-size-default">Hunt for what <span class="texto_bold"><i>matters</i></span></h1>
+        </div>
+      </div>
+    </div>
+    <div class="ds-spec-meta">Taviraj · clamp ~ 48–96px</div>
+  </div>
+
+  <div class="ds-spec">
+    <div class="ds-spec-name">Heading 2</div>
+    <div>
+      <div class="elementor-element elementor-widget elementor-widget-heading" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h2 class="elementor-heading-title elementor-size-default">More than a recruiter, an <i>identity</i></h2>
+        </div>
+      </div>
+    </div>
+    <div class="ds-spec-meta">Taviraj · ~ 40–64px</div>
+  </div>
+
+  <div class="ds-spec">
+    <div class="ds-spec-name">Heading 3</div>
+    <div>
+      <div class="elementor-element elementor-widget elementor-widget-heading" data-widget_type="heading.default">
+        <div class="elementor-widget-container">
+          <h3 class="elementor-heading-title elementor-size-default">Porto Alegre | RS</h3>
+        </div>
+      </div>
+    </div>
+    <div class="ds-spec-meta">Taviraj · ~ 28–36px</div>
+  </div>
+
+  <div class="ds-spec">
+    <div class="ds-spec-name">Icon-box title</div>
+    <div>
+      <h3 class="elementor-icon-box-title">Expertise real para decisões críticas</h3>
+    </div>
+    <div class="ds-spec-meta">Montserrat · 18–22px</div>
+  </div>
+
+  <div class="ds-spec">
+    <div class="ds-spec-name">Bold inline</div>
+    <div>
+      <p>Recruitment and selection for <span class="texto_bold">senior management, director, C-level and board positions</span>.</p>
+    </div>
+    <div class="ds-spec-meta">Montserrat · 700</div>
+  </div>
+
+  <div class="ds-spec">
+    <div class="ds-spec-name">Bold formatted</div>
+    <div>
+      <p class="texto_bold_formated" style="font-size:24px;">A governança que se constrói no tempo.</p>
+    </div>
+    <div class="ds-spec-meta">Montserrat 700 · forced</div>
+  </div>
+
+  <div class="ds-spec">
+    <div class="ds-spec-name">Paragraph (lede)</div>
+    <div>
+      <p style="font-size:18px;line-height:1.6;">There are organizations that choose to grow without losing their roots. Organizations where governance is vibrant. Where succession is continuity, not disruption.</p>
+    </div>
+    <div class="ds-spec-meta">Montserrat · 18px / 28.8px</div>
+  </div>
+
+  <div class="ds-spec">
+    <div class="ds-spec-name">Paragraph (body)</div>
+    <div>
+      <p style="font-size:15px;line-height:1.6;">Perhaps the idea of taking your career outside of Brazil has crossed your mind. Not as a grandiose plan, but as that "what if..." that pops up every now and then.</p>
+    </div>
+    <div class="ds-spec-meta">Montserrat · 15px / 24px</div>
+  </div>
+
+  <div class="ds-spec">
+    <div class="ds-spec-name">Caption / small</div>
+    <div>
+      <p style="font-size:13px;color:#6b6b6b;">Evermonte Executive &amp; Board Search — for governance evolution.</p>
+    </div>
+    <div class="ds-spec-meta">Montserrat · 13px</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 2. COLORS & SURFACES                                         -->
+<!-- ============================================================ -->
+<section id="colors" class="ds-section">
+  <div class="ds-eyebrow">02 — Foundations</div>
+  <h2 class="ds-section-title">Colors &amp; <i>surfaces</i></h2>
+  <p class="ds-section-lede">A near-monochrome palette: deep ink, off-black, evermonte blue, and paper white. Surfaces move from light editorial to dark stage; the blue (<code>#1F4461</code>) is reserved for accent buttons, swap states and brand moments.</p>
+
+  <div class="ds-grid cols-4">
+    <div class="ds-swatch">
+      <div class="ds-swatch-chip" style="background:#151515;"></div>
+      <div class="ds-swatch-meta"><strong>Ink / Off-black</strong><code>#151515</code><br><span style="color:#6b6b6b">btnfundobranco · dark sections</span></div>
+    </div>
+    <div class="ds-swatch">
+      <div class="ds-swatch-chip" style="background:#000000;"></div>
+      <div class="ds-swatch-meta"><strong>Pure black</strong><code>#000000</code><br><span style="color:#6b6b6b">type · arrows fill</span></div>
+    </div>
+    <div class="ds-swatch">
+      <div class="ds-swatch-chip" style="background:#1F4461;"></div>
+      <div class="ds-swatch-meta"><strong>Evermonte blue</strong><code>#1F4461</code><br><span style="color:#6b6b6b">btnfundoazul · accent</span></div>
+    </div>
+    <div class="ds-swatch">
+      <div class="ds-swatch-chip" style="background:#ffffff;border-bottom:1px solid var(--ds-line);"></div>
+      <div class="ds-swatch-meta"><strong>Paper white</strong><code>#ffffff</code><br><span style="color:#6b6b6b">btnsemfundo · default surface</span></div>
+    </div>
+  </div>
+
+  <div class="ds-grid cols-3" style="margin-top:24px;">
+    <div class="ds-swatch">
+      <div class="ds-swatch-chip" style="background:linear-gradient(135deg,#151515 0%,#1F4461 100%);"></div>
+      <div class="ds-swatch-meta"><strong>Gradient — ink → blue</strong><code>135deg · #151515 → #1F4461</code><br><span style="color:#6b6b6b">CTA backdrops, secondary heroes</span></div>
+    </div>
+    <div class="ds-swatch">
+      <div class="ds-swatch-chip" style="background:linear-gradient(180deg,rgba(0,0,0,0) 0%,rgba(0,0,0,.65) 100%);"></div>
+      <div class="ds-swatch-meta"><strong>Image overlay</strong><code>180deg · 0 → rgba(0,0,0,.65)</code><br><span style="color:#6b6b6b">image cards, listing tiles</span></div>
+    </div>
+    <div class="ds-swatch">
+      <div class="ds-swatch-chip" style="background:#f6f6f4;border-bottom:1px solid var(--ds-line);"></div>
+      <div class="ds-swatch-meta"><strong>Soft surface</strong><code>#f6f6f4</code><br><span style="color:#6b6b6b">section backgrounds · cards</span></div>
+    </div>
+  </div>
+
+  <div class="ds-grid cols-2" style="margin-top:24px;">
+    <div class="ds-tile dark">
+      <span class="ds-state-label" style="color:#9b9b9b">Dark surface — used for hero, CTAs</span>
+      <p style="margin-top:8px;font-family:Taviraj,Georgia,serif;font-size:28px;line-height:1.15;">Where succession is <i>continuity</i>, not disruption.</p>
+    </div>
+    <div class="ds-tile">
+      <span class="ds-state-label">Light surface — used for editorial sections</span>
+      <p style="margin-top:8px;font-family:Taviraj,Georgia,serif;font-size:28px;line-height:1.15;color:#151515;">A governance that is built <i>over time</i>.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 3. UI COMPONENTS                                             -->
+<!-- ============================================================ -->
+<section id="components" class="ds-section">
+  <div class="ds-eyebrow">03 — Components</div>
+  <h2 class="ds-section-title">UI <i>components</i></h2>
+  <p class="ds-section-lede">Every button on the site is a composition of <code>elementor-button</code> + a project modifier (<code>btnset</code>, <code>btnsetas</code>, <code>btnlargo</code>) + a surface variant (<code>btnsemfundo</code>, <code>btnfundobranco</code>, <code>btnfundoazul</code>). The SVG inside <code>btnset</code> rotates from <code>45deg → 90deg</code> on hover — that's the system's signature micro-interaction.</p>
+
+  <!-- BUTTON: btnset / btnsemfundo (primary on light) -->
+  <div class="ds-spec">
+    <div class="ds-spec-name">btnset · btnsemfundo</div>
+    <div class="ds-shelf">
+      <div>
+        <span class="ds-state-label">Default</span>
+        <div class="elementor-element elementor-align-left btnset btnsemfundo elementor-widget elementor-widget-button" data-widget_type="button.default">
+          <div class="elementor-widget-container">
+            <div class="elementor-button-wrapper">
+              <a class="elementor-button elementor-button-link elementor-size-sm" href="#components">
+                <span class="elementor-button-content-wrapper">
+                  <span class="elementor-button-text">Evermonte <span class="texto_bold">Insights</span></span>
+                  <span class="elementor-button-icon">
+                    <svg fill="none" height="35" viewBox="0 0 35 35" width="35" xmlns="http://www.w3.org/2000/svg"><path d="M11 12L23 12L23 24" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11 24L23 12" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="ds-state-label">Hover (icon → 90°)</span>
+        <div class="elementor-element elementor-align-left btnset btnsemfundo elementor-widget elementor-widget-button" data-widget_type="button.default" style="--demo-hover:1;">
+          <div class="elementor-widget-container">
+            <div class="elementor-button-wrapper">
+              <a class="elementor-button elementor-button-link elementor-size-sm" href="#components" onmouseover="this.parentNode.parentNode.parentNode.parentNode.classList.add('is-hovered')" onmouseout="this.parentNode.parentNode.parentNode.parentNode.classList.remove('is-hovered')">
+                <span class="elementor-button-content-wrapper">
+                  <span class="elementor-button-text">Hover me</span>
+                  <span class="elementor-button-icon">
+                    <svg fill="none" height="35" viewBox="0 0 35 35" width="35" xmlns="http://www.w3.org/2000/svg"><path d="M11 12L23 12L23 24" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11 24L23 12" stroke="black" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ds-spec-meta">white svg bg · ink type</div>
+  </div>
+
+  <!-- BUTTON: btnset / btnfundobranco (primary on dark) -->
+  <div class="ds-spec">
+    <div class="ds-spec-name">btnset · btnfundobranco</div>
+    <div class="ds-shelf dark">
+      <div>
+        <span class="ds-state-label" style="color:#bdbdbd">Default</span>
+        <div class="elementor-element elementor-align-left btnset btnfundobranco elementor-widget elementor-widget-button" data-widget_type="button.default">
+          <div class="elementor-widget-container">
+            <div class="elementor-button-wrapper">
+              <a class="elementor-button elementor-button-link elementor-size-sm" href="#components" style="color:#fff;">
+                <span class="elementor-button-content-wrapper">
+                  <span class="elementor-button-text" style="color:#fff;">Enhance your <span class="texto_bold">governance</span></span>
+                  <span class="elementor-button-icon">
+                    <svg fill="none" height="35" viewBox="0 0 35 35" width="35" xmlns="http://www.w3.org/2000/svg"><path d="M11 12L23 12L23 24" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path><path d="M11 24L23 12" stroke="white" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ds-spec-meta">ink svg bg · white type</div>
+  </div>
+
+  <!-- BUTTON: btnsetas / stcomfundo (arrow nav) -->
+  <div class="ds-spec">
+    <div class="ds-spec-name">btnsetas · stcomfundo</div>
+    <div class="ds-shelf">
+      <div>
+        <span class="ds-state-label">Default</span>
+        <div class="elementor-element elementor-align-right btnsetas stcomfundo elementor-widget elementor-widget-button" data-widget_type="button.default">
+          <div class="elementor-widget-container">
+            <div class="elementor-button-wrapper">
+              <a class="elementor-button elementor-button-link elementor-size-sm" href="#components">
+                <span class="elementor-button-content-wrapper">
+                  <span class="elementor-button-icon">
+                    <svg fill="none" height="50" viewBox="0 0 50 50" width="50" xmlns="http://www.w3.org/2000/svg"><path d="M22.84 47.67C22.84 48.86 23.81 49.83 25 49.83C26.19 49.83 27.16 48.86 27.16 47.67L22.84 47.67ZM26.52 0.88C25.68 0.03 24.32 0.03 23.48 0.88L9.76 14.6C8.91 15.44 8.91 16.8 9.76 17.64C10.6 18.49 11.96 18.49 12.81 17.64L25 5.45L37.2 17.64C38.04 18.49 39.4 18.49 40.24 17.64C41.09 16.8 41.09 15.44 40.24 14.6L26.52 0.88ZM25 47.67L27.16 47.67L27.16 16.8L25 16.8L22.84 16.8L22.84 47.67L25 47.67ZM25 16.8L27.16 16.8L27.16 2.4L25 2.4L22.84 2.4L22.84 16.8L25 16.8Z" fill="black"></path></svg>
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ds-spec-meta">listing tiles · 50×50 · rotates 45→90°</div>
+  </div>
+
+  <!-- ICON BOX -->
+  <div class="ds-spec">
+    <div class="ds-spec-name">Icon Box</div>
+    <div class="ds-shelf">
+      <div class="elementor-element elementor-widget elementor-widget-icon-box" data-widget_type="icon-box.default" style="max-width:340px;">
+        <div class="elementor-widget-container">
+          <div class="elementor-icon-box-wrapper">
+            <div class="elementor-icon-box-icon">
+              <span class="elementor-icon elementor-animation-" style="display:inline-flex;width:48px;height:48px;border:1px solid #151515;border-radius:50%;align-items:center;justify-content:center;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12L19 12M19 12L13 6M19 12L13 18" stroke="#151515" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </span>
+            </div>
+            <div class="elementor-icon-box-content">
+              <h3 class="elementor-icon-box-title" style="margin:8px 0 6px;">Expertise real</h3>
+              <p class="elementor-icon-box-description" style="font-size:14px;color:#6b6b6b;line-height:1.5;">Decisões críticas começam com pessoas certas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ds-spec-meta">elementor-widget-icon-box</div>
+  </div>
+
+  <!-- TEXTOBOX -->
+  <div class="ds-spec">
+    <div class="ds-spec-name">Textobox</div>
+    <div class="ds-shelf">
+      <div class="elementor-element textobox elementor-widget elementor-widget-text-editor" data-widget_type="text-editor.default" style="background:#151515;color:#fff;border-radius:999px;">
+        <div class="elementor-widget-container">
+          <p style="color:#fff;">For <span class="texto_bold">executive search</span> and board advisory.</p>
+        </div>
+      </div>
+    </div>
+    <div class="ds-spec-meta">14.5px / 30px padding · pill</div>
+  </div>
+
+  <!-- INPUT (form widget exists) -->
+  <div class="ds-spec">
+    <div class="ds-spec-name">Form Field</div>
+    <div class="ds-shelf">
+      <div class="elementor-element elementor-widget elementor-widget-form" data-widget_type="form.default" style="width:100%;max-width:480px;">
+        <div class="elementor-widget-container">
+          <div class="elementor-form-fields-wrapper" style="display:grid;gap:12px;">
+            <label style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6b6b6b;">Email
+              <input type="email" placeholder="you@company.com" class="elementor-field elementor-field-textual" style="display:block;width:100%;margin-top:6px;padding:14px 16px;border:1px solid #151515;background:transparent;font-family:Montserrat,sans-serif;font-size:14px;border-radius:0;"/>
+            </label>
+            <label style="font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6b6b6b;">Focus state
+              <input type="email" placeholder="focused" class="elementor-field elementor-field-textual" autofocus style="display:block;width:100%;margin-top:6px;padding:14px 16px;border:1px solid #1F4461;background:#fff;font-family:Montserrat,sans-serif;font-size:14px;outline:2px solid rgba(31,68,97,.18);outline-offset:2px;border-radius:0;"/>
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ds-spec-meta">elementor-widget-form</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 4. LAYOUT & SPACING                                          -->
+<!-- ============================================================ -->
+<section id="layout" class="ds-section">
+  <div class="ds-eyebrow">04 — Layout</div>
+  <h2 class="ds-section-title">Layout &amp; <i>spacing</i></h2>
+  <p class="ds-section-lede">Two container archetypes drive nearly every section: the <strong>full-bleed flex parent</strong> (<code>e-con-full e-flex e-con e-parent</code>) and its <strong>nested children</strong> (<code>e-con e-child</code>). Block gap is 24px (<code>--wp--style--block-gap</code>); content size 800px, wide 1200px.</p>
+
+  <!-- Layout A: hero split -->
+  <div class="ds-spec">
+    <div class="ds-spec-name">Hero split</div>
+    <div class="ds-tile" style="padding:0;overflow:hidden;background:#151515;color:#fff;">
+      <div style="display:grid;grid-template-columns:1.1fr .9fr;min-height:280px;">
+        <div style="padding:40px;display:flex;flex-direction:column;justify-content:flex-end;gap:14px;">
+          <p style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#9b9b9b;">e-con-parent</p>
+          <h3 style="font-family:Taviraj,Georgia,serif;font-size:36px;line-height:1.05;margin:0;">DESIGN FOR WHAT <i>matters</i></h3>
+          <p style="color:#bdbdbd;font-size:14px;max-width:42ch;">Left column carries the headline + body + CTAs. Right column carries supporting type, scroll-down icon and a hidden spacer.</p>
+        </div>
+        <div style="padding:40px;display:flex;flex-direction:column;justify-content:space-between;border-left:1px solid rgba(255,255,255,.12);">
+          <p style="font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#9b9b9b;">e-con-child</p>
+          <div class="flutuar" style="align-self:flex-end;">
+            <a href="#typography" style="display:inline-flex;width:60px;height:60px;border:1px solid rgba(255,255,255,.6);border-radius:50%;align-items:center;justify-content:center;">
+              <svg width="24" height="24" viewBox="0 0 60 60" fill="none"><path d="M42 24L30 36L18 24" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ds-spec-meta">grid 1.1 / .9 · 40px pad</div>
+  </div>
+
+  <!-- Layout B: 3-up grid -->
+  <div class="ds-spec">
+    <div class="ds-spec-name">3-up content grid</div>
+    <div class="ds-grid cols-3">
+      <div class="ds-tile" style="background:#fff;">
+        <h4 style="font-family:Taviraj,Georgia,serif;font-size:20px;margin:0 0 6px;">Porto Alegre <i>| RS</i></h4>
+        <p style="font-size:13px;color:#6b6b6b;">Office card pattern.</p>
+      </div>
+      <div class="ds-tile" style="background:#fff;">
+        <h4 style="font-family:Taviraj,Georgia,serif;font-size:20px;margin:0 0 6px;">São Paulo <i>| SP</i></h4>
+        <p style="font-size:13px;color:#6b6b6b;">Office card pattern.</p>
+      </div>
+      <div class="ds-tile" style="background:#fff;">
+        <h4 style="font-family:Taviraj,Georgia,serif;font-size:20px;margin:0 0 6px;">Curitiba <i>| PR</i></h4>
+        <p style="font-size:13px;color:#6b6b6b;">Office card pattern.</p>
+      </div>
+    </div>
+    <div class="ds-spec-meta">gap 24px · cols-3</div>
+  </div>
+
+  <!-- Layout C: spacing scale -->
+  <div class="ds-spec">
+    <div class="ds-spec-name">Spacing scale</div>
+    <div class="ds-tile">
+      <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:8px;align-items:end;">
+        <div><div style="background:#1F4461;height:7px;"></div><code style="font-size:10px;">20<br>0.44</code></div>
+        <div><div style="background:#1F4461;height:11px;"></div><code style="font-size:10px;">30<br>0.67</code></div>
+        <div><div style="background:#1F4461;height:16px;"></div><code style="font-size:10px;">40<br>1.00</code></div>
+        <div><div style="background:#1F4461;height:24px;"></div><code style="font-size:10px;">50<br>1.50</code></div>
+        <div><div style="background:#1F4461;height:36px;"></div><code style="font-size:10px;">60<br>2.25</code></div>
+        <div><div style="background:#1F4461;height:54px;"></div><code style="font-size:10px;">70<br>3.38</code></div>
+        <div><div style="background:#1F4461;height:81px;"></div><code style="font-size:10px;">80<br>5.06</code></div>
+      </div>
+    </div>
+    <div class="ds-spec-meta">--wp--preset--spacing--*</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 5. MOTION & INTERACTION                                      -->
+<!-- ============================================================ -->
+<section id="motion" class="ds-section">
+  <div class="ds-eyebrow">05 — Motion</div>
+  <h2 class="ds-section-title">Motion &amp; <i>interaction</i></h2>
+  <p class="ds-section-lede">Motion is restrained. Three behaviors carry the brand: <strong>icon rotation</strong> on hover (45°→90°, 300ms), <strong>menu weight transition</strong> (100ms), and <strong>flutuar</strong> — a slow vertical float on the scroll-down indicator.</p>
+
+  <div class="ds-spec">
+    <div class="ds-spec-name">Icon rotate</div>
+    <div class="ds-tile">
+      <div style="display:flex;gap:24px;align-items:center;">
+        <div class="elementor-element btnset btnsemfundo elementor-widget elementor-widget-button" data-widget_type="button.default">
+          <div class="elementor-widget-container">
+            <div class="elementor-button-wrapper">
+              <a class="elementor-button elementor-button-link elementor-size-sm" href="#motion">
+                <span class="elementor-button-content-wrapper">
+                  <span class="elementor-button-text">Hover the icon</span>
+                  <span class="elementor-button-icon">
+                    <svg fill="none" height="35" viewBox="0 0 35 35" width="35"><path d="M11 12L23 12L23 24" stroke="black" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 24L23 12" stroke="black" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </span>
+              </a>
+            </div>
+          </div>
+        </div>
+        <code style="font-size:12px;color:#6b6b6b;">.btnset:hover svg { transform: rotate(90deg); transition: all .3s; }</code>
+      </div>
+    </div>
+    <div class="ds-spec-meta">300ms · ease</div>
+  </div>
+
+  <div class="ds-spec">
+    <div class="ds-spec-name">Float (flutuar)</div>
+    <div class="ds-tile dark">
+      <style>
+        @keyframes ds-flutuar { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+        .ds-doc .flutuar.is-demo .elementor-icon{animation:ds-flutuar 2.4s ease-in-out infinite;display:inline-flex;}
+      </style>
+      <div class="elementor-element flutuar is-demo elementor-view-default elementor-widget elementor-widget-icon" data-widget_type="icon.default">
+        <div class="elementor-widget-container">
+          <div class="elementor-icon-wrapper">
+            <a class="elementor-icon" href="#motion">
+              <svg fill="none" height="60" viewBox="0 0 60 60" width="60"><rect height="59" rx="29.5" stroke="white" width="59" x="0.5" y="0.5"/><path d="M42 24L30 36L18 24" stroke="white" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ds-spec-meta">2.4s · vertical · infinite</div>
+  </div>
+
+  <div class="ds-spec">
+    <div class="ds-spec-name">Menu weight</div>
+    <div class="ds-tile">
+      <ul style="list-style:none;display:flex;gap:24px;margin:0;padding:0;">
+        <li class="menu-item"><a href="#motion" style="color:#151515;text-decoration:none;font-size:14px;">Início</a></li>
+        <li class="menu-item current-menu-item"><a href="#motion" style="color:#151515;text-decoration:none;font-size:14px;">Para clientes</a></li>
+        <li class="menu-item"><a href="#motion" style="color:#151515;text-decoration:none;font-size:14px;">Para candidatos</a></li>
+        <li class="menu-item"><a href="#motion" style="color:#151515;text-decoration:none;font-size:14px;">Insights</a></li>
+      </ul>
+      <code style="display:block;margin-top:12px;font-size:12px;color:#6b6b6b;">li a { transition: all .1s; }  li.menu-item:hover &gt; a { font-weight: bolder; }</code>
+    </div>
+    <div class="ds-spec-meta">100ms · weight only</div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<!-- 6. ICONS                                                     -->
+<!-- ============================================================ -->
+<section id="icons" class="ds-section">
+  <div class="ds-eyebrow">06 — Icons</div>
+  <h2 class="ds-section-title">Icon <i>system</i></h2>
+  <p class="ds-section-lede">Icons are inline SVG, stroke-based, with consistent <code>stroke-linecap="round"</code> and <code>stroke-linejoin="round"</code>. Color inherits from <code>stroke</code> attribute (white on dark, black on light). Sizes follow three discrete steps.</p>
+
+  <div class="ds-grid cols-4">
+    <div class="ds-swatch">
+      <div class="ds-swatch-chip" style="display:flex;align-items:center;justify-content:center;background:#fff;">
+        <svg fill="none" height="35" viewBox="0 0 35 35" width="35"><path d="M11 12L23 12L23 24" stroke="#151515" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 24L23 12" stroke="#151515" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="ds-swatch-meta"><strong>Arrow ↗</strong><code>35×35 · btnset</code></div>
+    </div>
+    <div class="ds-swatch">
+      <div class="ds-swatch-chip" style="display:flex;align-items:center;justify-content:center;background:#fff;">
+        <svg fill="none" height="50" viewBox="0 0 50 50" width="50"><path d="M22.84 47.67C22.84 48.86 23.81 49.83 25 49.83C26.19 49.83 27.16 48.86 27.16 47.67L22.84 47.67ZM26.52 0.88C25.68 0.03 24.32 0.03 23.48 0.88L9.76 14.6C8.91 15.44 8.91 16.8 9.76 17.64C10.6 18.49 11.96 18.49 12.81 17.64L25 5.45L37.2 17.64C38.04 18.49 39.4 18.49 40.24 17.64C41.09 16.8 41.09 15.44 40.24 14.6L26.52 0.88ZM25 47.67L27.16 47.67L27.16 16.8L25 16.8L22.84 16.8L22.84 47.67L25 47.67Z" fill="#151515"/></svg>
+      </div>
+      <div class="ds-swatch-meta"><strong>Arrow ↑</strong><code>50×50 · btnsetas</code></div>
+    </div>
+    <div class="ds-swatch">
+      <div class="ds-swatch-chip" style="display:flex;align-items:center;justify-content:center;background:#151515;">
+        <svg fill="none" height="60" viewBox="0 0 60 60" width="60"><rect height="59" rx="29.5" stroke="#fff" width="59" x="0.5" y="0.5"/><path d="M42 24L30 36L18 24" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div class="ds-swatch-meta"><strong>Scroll ↓</strong><code>60×60 · flutuar</code></div>
+    </div>
+    <div class="ds-swatch">
+      <div class="ds-swatch-chip" style="display:flex;align-items:center;justify-content:center;background:#fff;">
+        <svg width="180" height="60" viewBox="0 0 180 180" fill="none"><path d="M119 47.3C119 48.2 118.7 49 118 49.6L78.8 89L118 128.4C118.7 129 119 129.8 119 130.7C119 131.6 118.7 132.3 118 133L113 138C112.4 138.7 111.6 139 110.7 139C109.9 139 109.1 138.7 108.4 138L62 91.3C61.3 90.6 61 89.9 61 89C61 88.1 61.3 87.4 62 86.7L108.4 40C109.1 39.3 109.9 39 110.7 39C111.6 39 112.4 39.3 113 40L118 45C118.7 45.7 119 46.4 119 47.3Z" fill="#151515"/></svg>
+      </div>
+      <div class="ds-swatch-meta"><strong>Slider ‹</strong><code>180×180 · listings</code></div>
+    </div>
+  </div>
+
+  <div class="ds-grid cols-2" style="margin-top:24px;">
+    <div class="ds-tile" style="display:flex;gap:18px;align-items:center;">
+      <svg fill="none" height="35" viewBox="0 0 35 35" width="35"><path d="M11 12L23 12L23 24" stroke="#151515" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 24L23 12" stroke="#151515" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <code style="font-size:12px;color:#6b6b6b;">color inherits via <strong>stroke</strong> — light surface</code>
+    </div>
+    <div class="ds-tile dark" style="display:flex;gap:18px;align-items:center;">
+      <svg fill="none" height="35" viewBox="0 0 35 35" width="35"><path d="M11 12L23 12L23 24" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"/><path d="M11 24L23 12" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <code style="font-size:12px;color:#bdbdbd;">color inherits via <strong>stroke</strong> — dark surface</code>
+    </div>
+  </div>
+</section>
+
+<footer style="padding:48px 24px;border-top:1px solid var(--ds-line);text-align:center;color:#6b6b6b;font-size:12px;">
+  Evermonte Design System — opus2 · pattern library extracted from <code>index.html</code>
+</footer>
+
+</body>
+</html>

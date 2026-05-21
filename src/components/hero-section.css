@@ -1,21 +1,21 @@
 /* Hero — AQUARII */
 .pc-hero {
-  --pc-marinho: #1E2A3A;
-  --pc-secundaria: #4F6C83;
-  --pc-bg: #0A0E14;
-  --pc-stroke: rgba(217,183,136,0.12);
-  --pc-stroke-strong: rgba(217,183,136,0.28);
+  --pc-marinho: #163348;
+  --pc-secundaria: #2d5a7a;
+  --pc-bg: #151515;
+  --pc-stroke: rgba(31,68,97,0.25);
+  --pc-stroke-strong: rgba(31,68,97,0.45);
   --pc-text: #F5F6F8;
   --pc-text-mute: rgba(245,246,248,0.62);
   --pc-text-faint: rgba(245,246,248,0.35);
-  --pc-champagne-50: #F5EDE0;
-  --pc-champagne-200: #E8D2A8;
-  --pc-champagne-400: #D9B788;
-  --pc-champagne-600: #A8895E;
-  --pc-champagne-800: #5C4A33;
+  --pc-champagne-50: #e8f0f6;
+  --pc-champagne-200: #6b9ab8;
+  --pc-champagne-400: #1F4461;
+  --pc-champagne-600: #163348;
+  --pc-champagne-800: #0d1f2d;
   --pc-font-display: 'Taviraj', Georgia, serif;
   --pc-font-body: 'Montserrat', system-ui, sans-serif;
-  --pc-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --pc-font-mono: 'Montserrat', system-ui, sans-serif;
   --pc-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
   --pc-ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
   background: var(--pc-bg);
@@ -43,12 +43,12 @@
   color: var(--pc-text-mute);
 }
 .pc-hero .label-mono {
-  font-family: var(--pc-font-mono);
+  font-family: var(--pc-font-body);
   font-size: 0.6875rem;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   color: var(--pc-text-faint);
-  font-weight: 400;
+  font-weight: 600;
 }
 
 /* PHOTO */
@@ -63,17 +63,17 @@
 }
 .pc-hero .hero-photo-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(10,14,20,0.18) 0%, rgba(10,14,20,0.0) 30%, rgba(10,14,20,0.35) 80%, var(--pc-bg) 100%);
+  background: linear-gradient(to bottom, rgba(21,21,21,0.18) 0%, rgba(21,21,21,0.0) 30%, rgba(21,21,21,0.35) 80%, var(--pc-bg) 100%);
   pointer-events: none;
 }
 .pc-hero .hero-vignette {
   position: absolute; inset: 0;
-  background: radial-gradient(ellipse 90% 70% at 50% 50%, transparent 45%, rgba(10,14,20,0.35) 100%);
+  background: radial-gradient(ellipse 90% 70% at 50% 50%, transparent 45%, rgba(21,21,21,0.35) 100%);
   pointer-events: none;
 }
 .pc-hero .hero-scroll-veil {
   position: absolute; inset: 0;
-  background: linear-gradient(to bottom, rgba(10,14,20,0) 0%, rgba(10,14,20,0.35) 55%, rgba(10,14,20,0.85) 100%);
+  background: linear-gradient(to bottom, rgba(21,21,21,0) 0%, rgba(21,21,21,0.35) 55%, rgba(21,21,21,0.85) 100%);
   opacity: 0;
   pointer-events: none;
   will-change: opacity;
@@ -83,8 +83,8 @@
 .pc-hero .grid-lines {
   position: absolute; inset: 0; pointer-events: none;
   background-image:
-    linear-gradient(to right, rgba(217,183,136,0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(217,183,136,0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(31,68,97,0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(31,68,97,0.08) 1px, transparent 1px);
   background-size: 80px 80px;
   -webkit-mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
           mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
@@ -96,22 +96,23 @@
   padding: 0.45rem 0.95rem;
   border: 1px solid var(--pc-stroke-strong);
   border-radius: 999px;
-  font-family: var(--pc-font-mono);
+  font-family: var(--pc-font-body);
   font-size: 0.65rem;
-  text-transform: uppercase; letter-spacing: 0.22em;
+  font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.18em;
   color: var(--pc-champagne-200);
-  background: rgba(217,183,136,0.05);
+  background: rgba(31,68,97,0.08);
   backdrop-filter: blur(10px);
   white-space: nowrap;
   max-width: 100%;
 }
 @media (max-width: 480px) {
-  .pc-hero .pc-badge { font-size: 0.55rem; letter-spacing: 0.18em; padding: 0.4rem 0.8rem; }
+  .pc-hero .pc-badge { font-size: 0.55rem; letter-spacing: 0.15em; padding: 0.4rem 0.8rem; }
 }
 .pc-hero .pc-badge .dot {
   width: 6px; height: 6px; border-radius: 50%;
-  background: var(--pc-champagne-400);
-  box-shadow: 0 0 14px var(--pc-champagne-400);
+  background: var(--pc-champagne-200);
+  box-shadow: 0 0 14px var(--pc-champagne-200);
   animation: pc-pulse 2s ease-in-out infinite;
 }
 @keyframes pc-pulse {
@@ -131,7 +132,7 @@
   text-transform: uppercase; letter-spacing: 0.22em;
   color: var(--pc-text);
   background:
-    linear-gradient(rgba(10,14,20,0.85), rgba(10,14,20,0.85)) padding-box,
+    linear-gradient(rgba(21,21,21,0.85), rgba(21,21,21,0.85)) padding-box,
     conic-gradient(from calc(var(--pc-gradient-angle)),
       transparent 0%, var(--pc-champagne-400) 8%, var(--pc-champagne-200) 16%,
       var(--pc-champagne-400) 28%, transparent 42%, transparent 100%) border-box;
@@ -162,8 +163,8 @@
   transition: all 0.45s var(--pc-ease-out-expo);
 }
 .pc-hero .btn-ghost:hover {
-  background: rgba(217,183,136,0.08);
-  color: var(--pc-champagne-400);
+  background: rgba(31,68,97,0.12);
+  color: var(--pc-champagne-200);
   border-color: var(--pc-champagne-400);
 }
 
@@ -201,7 +202,7 @@
 .pc-hero .stat-card > .corner-br { bottom: -1px; right: -1px; border-bottom-width: 1px; border-right-width: 1px; }
 .pc-hero .stat-card:hover {
   transform: translateY(-4px);
-  background: linear-gradient(150deg, rgba(217,183,136,0.10), rgba(217,183,136,0.01));
+  background: linear-gradient(150deg, rgba(31,68,97,0.12), rgba(31,68,97,0.02));
   border-color: var(--pc-stroke-strong);
 }
 .pc-hero .stat-card:hover::before,
@@ -211,7 +212,7 @@
 
 .pc-hero .stat-card .sheen {
   position: absolute; inset: 0;
-  background: linear-gradient(120deg, transparent 40%, rgba(217,183,136,0.18) 50%, transparent 60%);
+  background: linear-gradient(120deg, transparent 40%, rgba(31,68,97,0.22) 50%, transparent 60%);
   transform: translateX(-110%);
   transition: transform 0.9s var(--pc-ease-out-expo);
   pointer-events: none;
@@ -229,11 +230,11 @@
 }
 .pc-hero .stat-value .unit {
   font-size: 0.5em;
-  font-weight: 400;
+  font-weight: 600;
   letter-spacing: 0.05em;
-  color: var(--pc-champagne-400);
+  color: var(--pc-champagne-200);
   text-transform: uppercase;
-  font-family: var(--pc-font-mono);
+  font-family: var(--pc-font-body);
 }
 .pc-hero .stat-card:hover .stat-value { color: var(--pc-champagne-200); }
 .pc-hero .stat-label {

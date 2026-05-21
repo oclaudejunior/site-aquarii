@@ -18,7 +18,7 @@ export default {
         display: ["Taviraj", "Georgia", "serif"],
         body: ["Montserrat", "system-ui", "sans-serif"],
         sans: ["Montserrat", "system-ui", "sans-serif"],
-        mono: ["JetBrains Mono", "ui-monospace", "monospace"],
+        mono: ["Montserrat", "system-ui", "sans-serif"],
       },
       colors: {
         border: "hsl(var(--border))",
