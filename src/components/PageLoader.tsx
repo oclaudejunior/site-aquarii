@@ -55,8 +55,7 @@ const PageLoader = () => {
           transition: "opacity 400ms cubic-bezier(0.16, 1, 0.3, 1), transform 500ms cubic-bezier(0.16, 1, 0.3, 1)",
         }}
       >
-        <span className="text-foreground">PERFORMA</span>
-        <span className="gold-text not-italic" style={{ fontStyle: "normal", display: "inline-block", paddingRight: "0.08em" }}>COOP</span>
+        <span className="gold-text not-italic" style={{ fontStyle: "normal", display: "inline-block", paddingRight: "0.08em" }}>AQUARII</span>
       </div>
       <div
         className="overflow-hidden"
