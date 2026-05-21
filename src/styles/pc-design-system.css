@@ -1,0 +1,116 @@
+/* ===== AQUARII — Design System global =====
+   Ativa pc-* tokens, nav glass, brand-glyph e mono nav-link em todo o app. */
+
+:root {
+  --pc-marinho: #1E2A3A;
+  --pc-preto: #000000;
+  --pc-secundaria: #4F6C83;
+  --pc-neutro: #F5F6F8;
+  --pc-divisor: #E0E4E8;
+  --pc-destaque: #D9B788;
+
+  --pc-bg: #0A0E14;
+  --pc-surface: #0F1620;
+  --pc-surface-2: #141C28;
+  --pc-stroke: rgba(217,183,136,0.12);
+  --pc-stroke-strong: rgba(217,183,136,0.28);
+  --pc-text: #F5F6F8;
+  --pc-text-mute: rgba(245,246,248,0.62);
+  --pc-text-faint: rgba(245,246,248,0.35);
+
+  --pc-champagne-50: #F5EDE0;
+  --pc-champagne-200: #E8D2A8;
+  --pc-champagne-400: #D9B788;
+  --pc-champagne-600: #A8895E;
+  --pc-champagne-800: #5C4A33;
+
+  --pc-font-display: 'Taviraj', Georgia, serif;
+  --pc-font-body: 'Montserrat', system-ui, sans-serif;
+  --pc-font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --pc-ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --pc-ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* ===== NAV (pc-glass pill) ===== */
+.pc-nav { transition: background 0.5s var(--pc-ease-out-expo), border-color 0.5s var(--pc-ease-out-expo); }
+
+.pc-glass {
+  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015));
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--pc-stroke);
+  border-top-color: rgba(255,255,255,0.10);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,0.06) inset,
+    0 30px 80px -30px rgba(0,0,0,0.55);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.5s var(--pc-ease-out-expo), border-color 0.5s var(--pc-ease-out-expo);
+}
+.pc-glass.is-scrolled {
+  background: linear-gradient(135deg, rgba(10,14,20,0.85), rgba(10,14,20,0.6));
+  border-color: var(--pc-stroke-strong);
+}
+
+.pc-nav .nav-link {
+  position: relative;
+  padding: 0.4rem 0.2rem;
+  color: var(--pc-text);
+  font-family: var(--pc-font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: color 0.4s var(--pc-ease-out-expo);
+  text-decoration: none;
+}
+.pc-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -4px;
+  height: 1px;
+  background: var(--pc-champagne-400);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s var(--pc-ease-out-expo);
+}
+.pc-nav .nav-link:hover { color: var(--pc-champagne-400); }
+.pc-nav .nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
+.pc-nav .nav-link.is-active { color: var(--pc-champagne-400); }
+.pc-nav .nav-link.is-active::after { transform: scaleX(1); }
+
+.pc-nav .brand-mark {
+  display: inline-flex; align-items: center; gap: 0.7rem;
+  text-decoration: none;
+  transition: opacity 0.4s var(--pc-ease-out-expo);
+}
+.pc-nav .brand-glyph {
+  width: 28px; height: 28px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 3px;
+}
+.pc-nav .brand-glyph > i { display: block; border-radius: 3px; }
+
+.pc-nav .brand-wordmark {
+  font-family: var(--pc-font-display);
+  font-weight: 500;
+  font-size: 1.125rem;
+  letter-spacing: -0.01em;
+  color: var(--pc-text);
+}
+
+.pc-nav .pc-cta {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  font-family: var(--pc-font-body);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  background: var(--pc-champagne-400);
+  color: var(--pc-marinho);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all 0.45s var(--pc-ease-out-expo);
+}
+.pc-nav .pc-cta:hover { background: var(--pc-champagne-200); transform: translateY(-1px); }
