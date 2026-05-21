@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import MeetingFormDialog from "./MeetingFormDialog";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import aquariiLogo from "@/assets/aquarii-logo.png";
 
 const navLinks = [
@@ -91,7 +91,7 @@ const Header = () => {
             trigger={
               <button className="pc-cta">
                 Fale conosco
-                <ArrowUpRight size={13} />
+                <span className="btn-arrow"><ArrowRight size={13} /></span>
               </button>
             }
           />
@@ -103,7 +103,7 @@ const Header = () => {
             trigger={
               <button className="pc-cta" style={{ padding: "0.5rem 1rem", fontSize: "0.65rem" }}>
                 Fale conosco
-                <ArrowUpRight size={12} />
+                <span className="btn-arrow"><ArrowRight size={12} /></span>
               </button>
             }
           />
@@ -141,7 +141,7 @@ const Header = () => {
               trigger={
                 <button className="pc-cta" style={{ alignSelf: "flex-start" }}>
                   Fale conosco
-                  <ArrowUpRight size={13} />
+                  <span className="btn-arrow"><ArrowRight size={13} /></span>
                 </button>
               }
             />

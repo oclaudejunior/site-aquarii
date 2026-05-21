@@ -35,12 +35,12 @@ const SectionCTA = ({ title, goldWord, text, buttonText, buttonLink, showMeeting
           <div className="pt-2 flex flex-wrap gap-4 justify-center">
             {showMeetingForm && (
               <MeetingFormDialog
-                trigger={<ShinyButton>{meetingButtonText || "Solicitar Reunião"}</ShinyButton>}
+                trigger={<ShinyButton className="shiny-cta-light">{meetingButtonText || "Solicitar Reunião"}</ShinyButton>}
               />
             )}
             {buttonLink && buttonText && (
               <Link to={buttonLink}>
-                <ShinyButton>{buttonText}</ShinyButton>
+                <ShinyButton className="shiny-cta-light">{buttonText}</ShinyButton>
               </Link>
             )}
           </div>

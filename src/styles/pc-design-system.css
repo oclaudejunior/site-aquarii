@@ -9,14 +9,14 @@
   --pc-divisor: #E0E4E8;
   --pc-destaque: #1F4461;
 
-  --pc-bg: #151515;
-  --pc-surface: #1c1c1c;
-  --pc-surface-2: #222222;
-  --pc-stroke: rgba(31,68,97,0.25);
-  --pc-stroke-strong: rgba(31,68,97,0.45);
-  --pc-text: #F5F6F8;
-  --pc-text-mute: rgba(245,246,248,0.62);
-  --pc-text-faint: rgba(245,246,248,0.35);
+  --pc-bg: #ffffff;
+  --pc-surface: #f6f6f4;
+  --pc-surface-2: #ededeb;
+  --pc-stroke: rgba(0,0,0,0.10);
+  --pc-stroke-strong: rgba(0,0,0,0.20);
+  --pc-text: #151515;
+  --pc-text-mute: rgba(21,21,21,0.62);
+  --pc-text-faint: rgba(21,21,21,0.38);
 
   --pc-blue-50: #e8f0f6;
   --pc-blue-200: #6b9ab8;
@@ -43,27 +43,27 @@
 .pc-nav { transition: background 0.5s var(--pc-ease-out-expo), border-color 0.5s var(--pc-ease-out-expo); }
 
 .pc-glass {
-  background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.015));
+  background: linear-gradient(135deg, rgba(31,68,97,0.95), rgba(22,51,72,0.92));
   backdrop-filter: blur(20px) saturate(160%);
   -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid var(--pc-stroke);
-  border-top-color: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-top-color: rgba(255,255,255,0.15);
   box-shadow:
-    0 1px 0 rgba(255,255,255,0.06) inset,
-    0 30px 80px -30px rgba(0,0,0,0.55);
+    0 1px 0 rgba(255,255,255,0.08) inset,
+    0 4px 24px rgba(31,68,97,0.25);
   position: relative;
   overflow: hidden;
   transition: background 0.5s var(--pc-ease-out-expo), border-color 0.5s var(--pc-ease-out-expo);
 }
 .pc-glass.is-scrolled {
-  background: linear-gradient(135deg, rgba(21,21,21,0.88), rgba(21,21,21,0.65));
-  border-color: var(--pc-stroke-strong);
+  background: linear-gradient(135deg, rgba(31,68,97,0.98), rgba(22,51,72,0.96));
+  border-color: rgba(255,255,255,0.12);
 }
 
 .pc-nav .nav-link {
   position: relative;
   padding: 0.4rem 0.2rem;
-  color: var(--pc-text);
+  color: rgba(255,255,255,0.88);
   font-family: var(--pc-font-body);
   font-size: 0.72rem;
   font-weight: 600;
@@ -82,9 +82,9 @@
   transform-origin: right;
   transition: transform 0.5s var(--pc-ease-out-expo);
 }
-.pc-nav .nav-link:hover { color: var(--pc-blue-200); }
+.pc-nav .nav-link:hover { color: #ffffff; }
 .pc-nav .nav-link:hover::after { transform: scaleX(1); transform-origin: left; }
-.pc-nav .nav-link.is-active { color: var(--pc-blue-200); }
+.pc-nav .nav-link.is-active { color: #ffffff; }
 .pc-nav .nav-link.is-active::after { transform: scaleX(1); }
 
 .pc-nav .brand-mark {
@@ -103,22 +103,49 @@
   font-weight: 500;
   font-size: 1.125rem;
   letter-spacing: -0.01em;
-  color: var(--pc-text);
+  color: #ffffff;
 }
 
 .pc-nav .pc-cta {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  padding: 0.6rem 1.1rem;
+  display: inline-flex; align-items: center; gap: 0.65rem;
+  padding: 0.45rem 0.45rem 0.45rem 1.1rem;
   font-family: var(--pc-font-body);
-  font-size: 0.62rem;
+  font-size: 0.72rem;
   font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  background: var(--pc-blue-400);
-  color: #ffffff;
-  border: 0;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  background: #ffffff;
+  color: #151515;
+  border: 1px solid rgba(255,255,255,0.25);
   border-radius: 999px;
   cursor: pointer;
-  transition: all 0.45s var(--pc-ease-out-expo);
+  transition: all 0.38s var(--pc-ease-out-expo);
 }
-.pc-nav .pc-cta:hover { background: var(--pc-secundaria); transform: translateY(-1px); }
+.pc-nav .pc-cta:hover { background: rgba(255,255,255,0.92); transform: translateY(-1px); }
+
+/* ===== Seta rotativa estilo opus2 ===== */
+.btn-arrow {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 22px; height: 22px; border-radius: 50%; flex-shrink: 0;
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.pc-cta .btn-arrow {
+  background: #1F4461;
+  color: #ffffff;
+  width: 30px; height: 30px;
+}
+.pc-cta:hover .btn-arrow { transform: rotate(90deg); background: #163348; }
+
+.shiny-cta .btn-arrow { background: rgba(255,255,255,0.14); }
+.shiny-cta:hover .btn-arrow { transform: rotate(90deg); background: rgba(255,255,255,0.26); }
+
+/* ShinyButton sobre fundo claro (SectionCTA) */
+.shiny-cta-light {
+  color: var(--pc-blue-400) !important;
+}
+.shiny-cta-light .btn-arrow {
+  background: var(--pc-blue-400) !important;
+  color: #ffffff;
+}
+.shiny-cta-light:hover .btn-arrow { background: var(--pc-blue-600) !important; }

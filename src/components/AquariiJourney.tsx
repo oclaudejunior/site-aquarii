@@ -41,7 +41,7 @@ const pillars = [
 
 export default function AquariiJourney() {
   return (
-    <section className="bg-background text-foreground pt-10 md:pt-14 pb-24">
+    <section className="bg-background text-foreground pt-10 md:pt-14 pb-10">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <AnimatedSection>
           <div className="text-center mb-16">
@@ -73,38 +73,38 @@ export default function AquariiJourney() {
                   loading="lazy"
                   width={800}
                   height={1200}
-                  className="w-full h-full object-cover transition-[filter] duration-700 group-hover:blur-[2px]"
+                  className="w-full h-full object-cover brightness-[0.72] transition-[filter,brightness] duration-700 group-hover:brightness-[0.50] group-hover:blur-[2px]"
                 />
               </div>
 
               {/* Permanent bottom gradient */}
-              <div className="absolute inset-0 z-10 bg-gradient-to-t from-background via-background/30 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-500" />
 
               {/* Hover dark wash */}
-              <div className="absolute inset-0 z-10 bg-background/50 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
+              <div className="absolute inset-0 z-10 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" />
 
               {/* Content */}
               <div className="absolute inset-0 z-20 p-8 md:p-10 flex flex-col justify-end">
                 {/* Default label */}
                 <div className="transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:opacity-0 group-hover:-translate-y-6">
-                  <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-primary mb-3">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-white/60 mb-3">
                     Pilar {p.id}
                   </p>
-                  <h3 className="text-foreground font-body text-xl md:text-2xl font-medium tracking-tight">
+                  <h3 className="text-white font-body text-xl md:text-2xl font-medium tracking-tight">
                     {p.label}
                   </h3>
-                  <div className="mt-4 h-px w-12 bg-primary/60" />
+                  <div className="mt-4 h-px w-12 bg-white/40" />
                 </div>
 
                 {/* Reveal content */}
                 <div className="absolute left-8 right-8 md:left-10 md:right-10 bottom-8 md:bottom-10 translate-y-10 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-700 delay-100 ease-[cubic-bezier(0.16,1,0.3,1)] pointer-events-none group-hover:pointer-events-auto">
-                  <span className="block font-mono text-[11px] uppercase tracking-[0.3em] text-primary mb-4">
+                  <span className="block font-mono text-[11px] uppercase tracking-[0.3em] text-white/60 mb-4">
                     {p.id} / DNA
                   </span>
-                  <h2 className="font-heading italic text-3xl md:text-4xl text-foreground mb-5 leading-tight tracking-tight">
+                  <h2 className="font-heading italic text-3xl md:text-4xl text-white mb-5 leading-tight tracking-tight">
                     {p.title}
                   </h2>
-                  <p className="font-body text-muted-foreground text-sm md:text-base leading-relaxed max-w-[340px]">
+                  <p className="font-body text-white/75 text-sm md:text-base leading-relaxed max-w-[340px]">
                     {p.description}
                   </p>
                 </div>

@@ -5,15 +5,12 @@ import MeetingFormDialog from "./MeetingFormDialog";
 import AnimatedSection from "./AnimatedSection";
 
 const Footer = () => (
-  <footer className="relative border-t border-border/40 pt-14 pb-8 z-10" style={{ background: "hsl(var(--card))" }}>
+  <footer className="relative pt-14 pb-8 z-10" style={{ background: "#1F4461" }}>
     {/* Glow decorativo no topo */}
     <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
       <div
         className="absolute left-1/2 -translate-x-1/2 -top-10 w-[90vw] max-w-6xl h-56"
-        style={{
-          background:
-            "radial-gradient(ellipse at top, hsl(var(--primary) / 0.25) 0%, transparent 65%)",
-        }}
+        style={{ background: "radial-gradient(ellipse at top, rgba(255,255,255,0.06) 0%, transparent 65%)" }}
       />
     </div>
 
@@ -23,7 +20,7 @@ const Footer = () => (
         <AnimatedSection>
           <div>
             <Logo />
-            <p className="mt-4 text-xs text-muted-foreground/70">
+            <p className="mt-4 text-xs" style={{ color: "rgba(255,255,255,0.55)" }}>
               Empresa do Ecossistema AQUARII Inteligência Interior.
             </p>
           </div>
@@ -32,29 +29,36 @@ const Footer = () => (
         {/* Navegação */}
         <AnimatedSection delay={80}>
           <div>
-            <h4 className="text-lg sm:text-xl font-heading font-semibold tracking-tight text-foreground">
+            <h4 className="text-lg sm:text-xl font-heading font-semibold tracking-tight" style={{ color: "#ffffff" }}>
               Navegação
             </h4>
             <ul className="mt-4 space-y-2 text-sm">
-              <li>
-                <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
-                <Link to="/sobre" className="text-muted-foreground hover:text-primary transition-colors">
-                  Sobre
-                </Link>
-              </li>
-              <li>
-                <Link to="/programas" className="text-muted-foreground hover:text-primary transition-colors">
-                  Programas
-                </Link>
-              </li>
+              {[
+                { label: "Home", to: "/" },
+                { label: "Sobre", to: "/sobre" },
+                { label: "Programas", to: "/programas" },
+              ].map((l) => (
+                <li key={l.to}>
+                  <Link
+                    to={l.to}
+                    className="transition-colors"
+                    style={{ color: "rgba(255,255,255,0.65)" }}
+                    onMouseEnter={e => (e.currentTarget.style.color = "#ffffff")}
+                    onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}
+                  >
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
               <li>
                 <MeetingFormDialog
                   trigger={
-                    <button className="text-muted-foreground hover:text-primary transition-colors text-left">
+                    <button
+                      className="transition-colors text-left"
+                      style={{ color: "rgba(255,255,255,0.65)" }}
+                      onMouseEnter={e => (e.currentTarget.style.color = "#ffffff")}
+                      onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}
+                    >
                       Solicitar Reunião
                     </button>
                   }
@@ -67,7 +71,7 @@ const Footer = () => (
         {/* Social */}
         <AnimatedSection delay={160}>
           <div>
-            <h4 className="text-lg sm:text-xl font-heading font-semibold tracking-tight text-foreground">
+            <h4 className="text-lg sm:text-xl font-heading font-semibold tracking-tight" style={{ color: "#ffffff" }}>
               Social
             </h4>
             <ul className="mt-4 space-y-2 text-sm">
@@ -76,9 +80,12 @@ const Footer = () => (
                   href="https://wa.me/5547988164061"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                  className="inline-flex items-center gap-2 transition-colors"
+                  style={{ color: "rgba(255,255,255,0.65)" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#ffffff")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}
                 >
-                  <MessageCircle className="w-4 h-4 text-muted-foreground/60" />
+                  <MessageCircle className="w-4 h-4" style={{ opacity: 0.7 }} />
                   WhatsApp
                 </a>
               </li>
@@ -87,9 +94,12 @@ const Footer = () => (
                   href="https://instagram.com/aquarii"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                  className="inline-flex items-center gap-2 transition-colors"
+                  style={{ color: "rgba(255,255,255,0.65)" }}
+                  onMouseEnter={e => (e.currentTarget.style.color = "#ffffff")}
+                  onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}
                 >
-                  <Instagram className="w-4 h-4 text-muted-foreground/60" />
+                  <Instagram className="w-4 h-4" style={{ opacity: 0.7 }} />
                   Instagram
                 </a>
               </li>
@@ -100,24 +110,30 @@ const Footer = () => (
         {/* Contato direto */}
         <AnimatedSection delay={240}>
           <div>
-            <h4 className="text-lg sm:text-xl font-heading font-semibold tracking-tight text-foreground">
+            <h4 className="text-lg sm:text-xl font-heading font-semibold tracking-tight" style={{ color: "#ffffff" }}>
               Fale com a gente
             </h4>
             <div className="mt-4 space-y-3 text-sm">
               <a
                 href="mailto:contato@aquarii.com.br"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-2 transition-colors"
+                style={{ color: "rgba(255,255,255,0.65)" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#ffffff")}
+                onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}
               >
-                <Mail className="w-4 h-4 text-muted-foreground/60" />
+                <Mail className="w-4 h-4" style={{ opacity: 0.7 }} />
                 contato@aquarii.com.br
               </a>
               <a
                 href="https://wa.me/5547988164061"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors"
+                className="flex items-center gap-2 transition-colors"
+                style={{ color: "rgba(255,255,255,0.65)" }}
+                onMouseEnter={e => (e.currentTarget.style.color = "#ffffff")}
+                onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.65)")}
               >
-                <MessageCircle className="w-4 h-4 text-muted-foreground/60" />
+                <MessageCircle className="w-4 h-4" style={{ opacity: 0.7 }} />
                 (47) 98816-4061
               </a>
 
@@ -125,7 +141,7 @@ const Footer = () => (
                 trigger={
                   <button className="shiny-cta mt-2">
                     Solicitar reunião
-                    <ArrowRight className="w-4 h-4" />
+                    <span className="btn-arrow"><ArrowRight className="w-4 h-4" /></span>
                   </button>
                 }
               />
@@ -135,16 +151,31 @@ const Footer = () => (
       </div>
 
       {/* Barra inferior */}
-      <div className="mt-10 border-t border-border/20 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm">
-        <p className="text-muted-foreground/80">
+      <div
+        className="mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm"
+        style={{ borderTop: "1px solid rgba(255,255,255,0.12)" }}
+      >
+        <p style={{ color: "rgba(255,255,255,0.50)" }}>
           © 2026 AQUARII. Todos os direitos reservados.
         </p>
         <div className="flex items-center gap-6">
-          <a href="#" className="text-muted-foreground/80 hover:text-primary transition-colors">
+          <a
+            href="#"
+            className="transition-colors"
+            style={{ color: "rgba(255,255,255,0.50)" }}
+            onMouseEnter={e => (e.currentTarget.style.color = "#ffffff")}
+            onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.50)")}
+          >
             Termos e Condições
           </a>
-          <span className="hidden sm:inline-block w-px h-4 bg-border/40" />
-          <a href="#" className="text-muted-foreground/80 hover:text-primary transition-colors">
+          <span className="hidden sm:inline-block w-px h-4" style={{ background: "rgba(255,255,255,0.20)" }} />
+          <a
+            href="#"
+            className="transition-colors"
+            style={{ color: "rgba(255,255,255,0.50)" }}
+            onMouseEnter={e => (e.currentTarget.style.color = "#ffffff")}
+            onMouseLeave={e => (e.currentTarget.style.color = "rgba(255,255,255,0.50)")}
+          >
             Política de Privacidade
           </a>
         </div>
@@ -152,7 +183,7 @@ const Footer = () => (
     </div>
 
     {/* Detalhe decorativo canto inferior */}
-    <span className="hidden md:block absolute right-6 bottom-6 h-4 w-16 rounded-full border border-border/30 bg-foreground/5" />
+    <span className="hidden md:block absolute right-6 bottom-6 h-4 w-16 rounded-full" style={{ border: "1px solid rgba(255,255,255,0.15)" }} />
   </footer>
 );
 
