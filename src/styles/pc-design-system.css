@@ -108,7 +108,7 @@
 
 .pc-nav .pc-cta {
   display: inline-flex; align-items: center; gap: 0.65rem;
-  padding: 0.45rem 0.45rem 0.45rem 1.1rem;
+  padding: 0.3rem 0.3rem 0.3rem 0.9rem;
   font-family: var(--pc-font-body);
   font-size: 0.72rem;
   font-weight: 600;
@@ -133,7 +133,7 @@
 .pc-cta .btn-arrow {
   background: #1F4461;
   color: #ffffff;
-  width: 30px; height: 30px;
+  width: 26px; height: 26px;
 }
 .pc-cta:hover .btn-arrow { transform: rotate(90deg); background: #163348; }
 

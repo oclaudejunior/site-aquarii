@@ -58,7 +58,7 @@ const Header = () => {
     <header className="pc-nav fixed top-0 left-0 right-0 z-50 px-4 md:px-8 pt-5">
       <div
         className={`pc-glass max-w-6xl mx-auto rounded-full ${scrolled ? "is-scrolled" : ""}`}
-        style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", padding: "0.6rem 1rem 0.6rem 1.4rem" }}
+        style={{ display: "grid", gridTemplateColumns: "1fr auto 1fr", alignItems: "center", padding: "0.35rem 0.75rem 0.35rem 1.1rem" }}
       >
         {/* Brand */}
         <Link
@@ -68,7 +68,7 @@ const Header = () => {
           aria-label="Aquarii home"
           style={{ justifySelf: "start" }}
         >
-          <img src={aquariiLogo} alt="Aquarii" className="h-8 w-auto" />
+          <img src={aquariiLogo} alt="Aquarii" className="h-6 w-auto" />
         </Link>
 
         {/* Desktop links */}
