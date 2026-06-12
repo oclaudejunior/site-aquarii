@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { ShinyButton } from "@/components/ui/shiny-button";
 import { Button } from "@/components/ui/button";
@@ -10,9 +10,18 @@ interface MeetingFormDialogProps {
   trigger?: React.ReactNode;
 }
 
+type LenisInstance = { stop: () => void; start: () => void };
+
 const MeetingFormDialog = ({ trigger }: MeetingFormDialogProps) => {
   const [open, setOpen] = useState(false);
   const [form, setForm] = useState({ nome: "", cooperativa: "", cargo: "", telefone: "", mensagem: "" });
+
+  // Pausa o Lenis enquanto o dialog está aberto para evitar acúmulo de posição virtual
+  useEffect(() => {
+    const lenis = (window as Window & { __lenis?: LenisInstance }).__lenis;
+    if (!lenis) return;
+    if (open) lenis.stop(); else lenis.start();
+  }, [open]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

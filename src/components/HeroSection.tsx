@@ -30,11 +30,19 @@ const HeroSection = () => {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     });
-    function raf(time: number) {
+
+    // Expõe instância para que dialogs possam pausar/retomar o scroll
+    (window as Window & { __lenis?: typeof lenis }).__lenis = lenis;
+
+    // Flag para parar o loop RAF no cleanup — o ID do primeiro frame
+    // não é suficiente porque as chamadas recursivas internas nunca são rastreadas
+    let alive = true;
+    const tick = (time: number) => {
+      if (!alive) return;
       lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-    const rafId = requestAnimationFrame(raf);
+      requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
     lenis.on("scroll", ScrollTrigger.update);
 
     const ctx = gsap.context(() => {
@@ -118,8 +126,9 @@ const HeroSection = () => {
     }, heroRef);
 
     return () => {
-      cancelAnimationFrame(rafId);
+      alive = false;
       lenis.destroy();
+      delete (window as Window & { __lenis?: typeof lenis }).__lenis;
       ctx.revert();
     };
   }, []);
