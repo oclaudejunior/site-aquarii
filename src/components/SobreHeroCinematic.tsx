@@ -30,8 +30,8 @@ const SobreHeroCinematic = () => {
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 60,
-    damping: 25,
+    stiffness: 120,
+    damping: 30,
     restDelta: 0.001,
   });
 

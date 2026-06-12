@@ -34,15 +34,12 @@ const HeroSection = () => {
     // Expõe instância para que dialogs possam pausar/retomar o scroll
     (window as Window & { __lenis?: typeof lenis }).__lenis = lenis;
 
-    // Flag para parar o loop RAF no cleanup — o ID do primeiro frame
-    // não é suficiente porque as chamadas recursivas internas nunca são rastreadas
-    let alive = true;
-    const tick = (time: number) => {
-      if (!alive) return;
-      lenis.raf(time);
-      requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
+    // Integra Lenis no ticker do GSAP em vez de um RAF manual independente.
+    // Assim ScrollTrigger lê o scroll DEPOIS que o Lenis já atualizou a posição
+    // dentro do mesmo frame — elimina o jitter nos scrubs de parallax.
+    const lenisRaf = (time: number) => lenis.raf(time * 1000);
+    gsap.ticker.add(lenisRaf);
+    gsap.ticker.lagSmoothing(0);
     lenis.on("scroll", ScrollTrigger.update);
 
     const ctx = gsap.context(() => {
@@ -126,7 +123,7 @@ const HeroSection = () => {
     }, heroRef);
 
     return () => {
-      alive = false;
+      gsap.ticker.remove(lenisRaf);
       lenis.destroy();
       delete (window as Window & { __lenis?: typeof lenis }).__lenis;
       ctx.revert();
